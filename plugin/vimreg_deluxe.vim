@@ -10,9 +10,6 @@ if ! exists ('g:vimreg_window_size_edit')
     let g:vimreg_window_size_edit = 10
 endif
 
-" TODO create new repo - VimRegDeluxe on github
-" rename this file to vimreg_deluxe.vim
-
 "----------------------------------------------------------------------
 " Globals for script
 let s:pending_bufnrs = {}
@@ -588,6 +585,7 @@ function! s:RegisterStatusline_bufinfo(bufinfo)
     call s:log('s:RegisterStatusline_bufinfo register='.l:register.' bufnr='.l:bufinfo.bufnr.' winid='.win_getid())
 endfunction
 
+" TODO possibly merge this with s:RefreshOneRegister_bufinfo
 function! s:RefreshRegister()
     " TODO convert to using buffer number from <abuf>
     call s:log('s:RefreshRegister '.b:_register_.' v:event='.string(v:event))
@@ -618,7 +616,7 @@ function! s:RefreshOneRegister_bufinfo(bufinfo)
         let l:bufinfo = a:bufinfo
     endif
 
-    if l:bufinfo.loaded && !l:bufinfo.hidden
+    if l:bufinfo.loaded && !l:bufinfo.hidden && !l:bufinfo.changed
         call s:log('s:RefreshOneRegister_bufinfo l:bufinfo.bufnr: '.l:bufinfo.bufnr.' _register_='.l:bufinfo.variables._register_)
 
         " Since the register has been changed and the buffer is
@@ -674,7 +672,9 @@ function! s:AutoBufWritePost()
     endif
     call s:log('call setreg('.b:_register_.')')
     call setreg(b:_register_, l:text, l:regtype)
-    call s:RegisterStatusline_register(b:_register_)
+
+    " call s:RegisterStatusline_register(b:_register_)
+    call s:RegisterStatusline_bufinfo(getbufinfo('%'))
 endfunction
 
 function! s:AutoFileChangedShellPost()
