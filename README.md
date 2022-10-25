@@ -2,12 +2,12 @@
 
 ## What is it?
 
-Edit [vim registers](https://vimhelp.org/change.txt.html#registers) as if they were files (buffers).
-Use the power of vim to change vim registers in a natural and efficient way.
-Writing changes to the register buffer automatically updates the internal buffer.
-As vim registers are updated directly or indirectly any visible buffer windows corresponding to registers are updated automatically.
-Helpful for complex editing tasks and constructing or modifying recorded vim macros.
-Useful for editing the system clipboard with vim such as the '+' and '\*' registers
+- Edit [vim registers](https://vimhelp.org/change.txt.html#registers) as if they were files (buffers).
+- Use the power of vim to change vim registers in a natural and efficient way.
+- Writing changes to the register buffer automatically updates the internal buffer.
+- As vim registers are updated directly or indirectly any visible buffer windows corresponding to registers are updated automatically.
+- Helpful for complex editing tasks and constructing or modifying recorded vim macros.
+- Useful for editing the system clipboard with vim such as the '+' and '\*' registers
 
 ## Installation
 
@@ -17,8 +17,9 @@ Place the file into the vim plugins directory such as ~/.vim/plugin
 
 Or to use the [vim packages](https://vimhelp.org/repeat.txt.html#packages) feature, can use something like the following for example:
 
-$ mkdirs -p ~/.vim/pack/github/start
-$ git clone from-blah-blah-blah into blah-blah-blah
+$ mkdir -p ~/.vim/pack/github/start
+$ cd ~/.vim/pack/github/start
+$ git clone https://github.com/m6z/VimRegDeluxe.git
 
 ## Commands
 
@@ -72,7 +73,7 @@ The default window sizes for viewing and editing registers can be changed.  See 
 
 The command abbreviations *vr*, *vre*, *vrs*, etc simply call functions in the script so other command aliases can be created.
 
-Script has been tested on console and gui versions of vim on Windows, Mac and Linux.  There are automated tests in [TODO.py](TODO.py) using [VimChanneler](TODO link to vim channeler).
+Script has been tested on console and gui versions of vim on Windows, Mac and Linux.  There are automated tests in [vimreg_deluxe_test.py](test/vimreg_deluxe_test.py) using [VimChanneler](https://github.com/m6z/VimChanneler).
 
 ## Caveats
 
