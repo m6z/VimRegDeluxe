@@ -11,7 +11,7 @@
 
 ## Installation
 
-All of the functionality is incorporated into a single vimscript file: [vimreg_deluxe.vim](vimreg_deluxe.vim)
+All of the functionality is incorporated into a single vimscript file: [vimreg_deluxe.vim](plugin/vimreg_deluxe.vim)
 
 Place the file into the vim plugins directory such as ~/.vim/plugin
 
