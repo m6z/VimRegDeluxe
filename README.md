@@ -4,10 +4,10 @@
 
 - Edit [vim registers](https://vimhelp.org/change.txt.html#registers) as if they were files (buffers).
 - Use the power of vim to change vim registers in a natural and efficient way.
-- Writing changes to the register buffer automatically updates the internal buffer.
-- As vim registers are updated directly or indirectly any visible buffer windows corresponding to registers are updated automatically.
-- Helpful for complex editing tasks and constructing or modifying recorded vim macros.
+    - Writing changes to the register buffer automatically updates the internal buffer.
+    - As vim registers are updated directly or indirectly any visible buffer windows corresponding to registers are updated automatically.
 - Useful for editing the system clipboard with vim such as the '+' and '\*' registers
+- Helpful for complex editing tasks and constructing or modifying recorded vim macros.
 
 ## Installation
 
