@@ -11,15 +11,18 @@
 
 ## Installation
 
-All of the functionality is incorporated into a single vimscript file: [vimreg_deluxe.vim(vimreg_deluxe.vim)
+All of the functionality is incorporated into a single vimscript file: [vimreg_deluxe.vim](vimreg_deluxe.vim)
 
 Place the file into the vim plugins directory such as ~/.vim/plugin
 
 Or to use the [vim packages](https://vimhelp.org/repeat.txt.html#packages) feature, can use something like the following for example:
 
+```
 $ mkdir -p ~/.vim/pack/github/start
 $ cd ~/.vim/pack/github/start
 $ git clone https://github.com/m6z/VimRegDeluxe.git
+```
+
 
 ## Commands
 
@@ -41,7 +44,7 @@ Edit the clipboard register:
 :vre +
 ```
 
-This is like the *vr* command but positions the cursor in the buffer for editing.  Saving the buffer updates the vim register, which can then be used during vim editing by a pasting/put operation.  The *vre* is the same as the *vr* command but just takes the extra step of moving the vim cursor and focus directly to the buffer for the register.
+This is like the **vr** command but positions the cursor in the buffer for editing.  Saving the buffer updates the vim register, which can then be used during vim editing by a pasting/put operation.  The **vre** is the same as the **vr** command but just takes the extra step of moving the vim cursor and focus directly to the buffer for the register.
 
 ### Close
 
@@ -65,13 +68,13 @@ This will resize any currently open register windows.  Can be useful when many r
 
 ### Refresh
 
-Force refresh any open register windows.  Normally the open register windows should update automatically as text changes in the internal vim registers.  There are some edge cases where this does not work so the *vrr* command is supplied to force updates to all visible registers.
+Force refresh any open register windows.  Normally the open register windows should update automatically as text changes in the internal vim registers.  There are some edge cases where this does not work so the **vrr** command is supplied to force updates to all visible registers.
 
 ## Implementation Notes
 
-The default window sizes for viewing and editing registers can be changed.  See g:vimreg_window_size_view and g:vimreg_window_size_edit in the script.
+The default window sizes for viewing and editing registers can be changed.  See ```g:vimreg_window_size_view``` and ```g:vimreg_window_size_edit``` in the script.
 
-The command abbreviations *vr*, *vre*, *vrs*, etc simply call functions in the script so other command aliases can be created.
+The command abbreviations **vr**, **vre**, **vrs**, etc simply call functions in the script so other command aliases can be created.
 
 Script has been tested on console and gui versions of vim on Windows, Mac and Linux.  There are automated tests in [vimreg_deluxe_test.py](test/vimreg_deluxe_test.py) using [VimChanneler](https://github.com/m6z/VimChanneler).
 
