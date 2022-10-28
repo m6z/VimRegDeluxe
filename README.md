@@ -23,12 +23,11 @@ $ cd ~/.vim/pack/github/start
 $ git clone https://github.com/m6z/VimRegDeluxe.git
 ```
 
-
 ## Commands
 
 ### View
 
-View registers a, b and c
+View registers, for example a, b and c (any registers can be indicated):
 
 ```
 :vr abc
@@ -38,7 +37,7 @@ This command opens any number of registers in individual buffers at the top of t
 
 ### Edit
 
-Edit the clipboard register:
+Edit a register, for example the clipboard register '+':
 
 ```
 :vre +
@@ -68,7 +67,13 @@ This will resize any currently open register windows.  Can be useful when many r
 
 ### Refresh
 
-Force refresh any open register windows.  Normally the open register windows should update automatically as text changes in the internal vim registers.  There are some edge cases where this does not work so the **vrr** command is supplied to force updates to all visible registers.
+Force refresh any open register windows.
+
+```
+:vrr
+```
+
+Normally the open register windows should update automatically as text changes in the internal vim registers.  There are some edge cases where this does not work so the **vrr** command is supplied to force updates to all visible registers.
 
 ## Implementation Notes
 
