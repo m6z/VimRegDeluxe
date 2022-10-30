@@ -3,18 +3,20 @@
 import sys, time, pprint, asyncio, tempfile, unittest
 from pathlib import Path
 
-# TODO don't hardcode path
-# export PYTHONPATH=~/base/development/VimChanneler/
-
-# TODO continue migrating tests from edit_registers_test.py
-
-import vim_channeler
+try:
+    import vim_channeler
+except ImportError:
+    print('''
+The VimChanneler package is required as a dependency.
+Download from https://github.com/m6z/VimChanneler and add to PYTHONPATH
+''')
+    sys.exit(1)
 
 class VimRegBasicTest(vim_channeler.VimChannelerFixture):
 
     async def asyncSetUp(self):
         self.vimch = await self.createVimChanneler()
-        plugin_vim = Path(__file__) / '../../plugin/edit_registers.vim'
+        plugin_vim = Path(__file__) / '../../plugin/vimreg_deluxe.vim'
         plugin_vim = plugin_vim.resolve()
         # print(f'plugin_vim={plugin_vim}')
         await self.vimch.ex(f'source {plugin_vim}')
@@ -23,7 +25,7 @@ class VimRegBasicTest(vim_channeler.VimChannelerFixture):
         scriptnames = await self.vimch.ex_redir('scriptnames')
         # print('scripts loaded:')
         # pprint.pprint([x for x in scriptnames.splitlines() if x])
-        self.assertGreaterEqual(scriptnames.find('edit_registers.vim'), 0)
+        self.assertGreaterEqual(scriptnames.find('vimreg_deluxe.vim'), 0)
 
     async def test_basic_edits(self):
         # Work with registers

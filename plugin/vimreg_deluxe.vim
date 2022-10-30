@@ -1,5 +1,8 @@
 " vim:ff=unix
 
+# Copyright 2022 Michael Graz
+# Released under the MIT License: http://www.opensource.org/licenses/mit-license.php
+
 " When viewing a register this is the default window height
 if ! exists ('g:vimreg_window_size_view')
     let g:vimreg_window_size_view = 3
@@ -16,8 +19,6 @@ let s:pending_bufnrs = {}
 
 function! s:initialize()
     if !exists('s:initialized')
-        " TODO is this a global setting?
-        " set updatetime=500
         set updatetime=250  " used by CursorHold
 
         augroup vimreg
@@ -468,20 +469,6 @@ function! s:AutoFocusGained()
     catch
         call s:log('s:AutoFocusGained Exception: '.v:exception)
     endtry
-endfunction
-
-" TODO instead get bufinfo for register?
-function! s:GetBufferNumberForRegister(register)
-    for buf in getbufinfo()
-        if has_key(buf, 'variables')
-            if has_key(buf.variables, '_register_')
-                if buf.variables._register_ == a:register
-                    return buf.bufnr
-                endif
-            endif
-        endif
-    endfor
-    return -1
 endfunction
 
 function! s:GetBufinfosForRegisters(registers)
