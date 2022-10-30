@@ -1,7 +1,7 @@
 " vim:ff=unix
 
-# Copyright 2022 Michael Graz
-# Released under the MIT License: http://www.opensource.org/licenses/mit-license.php
+" Copyright 2022 Michael Graz
+" Released under the MIT License: http://www.opensource.org/licenses/mit-license.php
 
 " When viewing a register this is the default window height
 if ! exists ('g:vimreg_window_size_view')
