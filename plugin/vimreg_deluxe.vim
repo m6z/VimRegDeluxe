@@ -35,13 +35,12 @@ endfunction
 
 function! s:log(msg)
     " Remove or comment the following line to enable logging
-    " return
+    return
 
     if !exists('s:logfile')
-        let s:logfile = '/tmp/vimreg.log'
-        if has('win32')
-            let s:logfile = 'c:'.s:logfile
-        endif
+        let l:tempname = tempname()
+        let l:tempdir = fnamemodify(l:tempname, ':p:h')
+        let s:logfile = l:tempdir . '/vimreg.log'
         if len(glob(s:logfile))
             call delete(s:logfile)
         endif
